@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <h1>Bar Joker</h1>
+    <% include ../partials/header %>
+    <div>
+      <p>Hello, <%= user[0].userName %>!</p>
+      <p>Customize your dares here:</p>
+        <input type="button" onclick="location.href='/customDares'" value="Custom Dares" class="myButton" id= />
+      <p>Don't forget to customize your punishments too:</p>
+      <button>Custom Punishments</button>
+      <p>
+        <strong>id</strong>: <%= user[0].userId %><br>
+      </p>
+      <input type="button" id="customGameButton" onclick="location.href='/customGame'" value="Custom Game" class="myButton">
+
+    </div>
+    <div>
+      
+    </div>
+ 
+    <% include ../partials/footer %>
+
+    
+  </body>
+</html>

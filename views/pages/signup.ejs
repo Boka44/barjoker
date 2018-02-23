@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <h1>Bar Joker</h1>
+    <% include ../partials/header %>
+
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <div class="form">
+        <p class="signin">Sign In</p>
+        
+        <form class="signup" action='/signup' method="post">
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" required />
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="text" name="email" required/>
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="text" name="password" required/>
+            </div>
+            <div>
+                <input type="submit" value="Submit" required/>
+            </div>
+        </form>
+    </div>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+    <% include ../partials/footer %>
+
+
+  </body>
+</html>

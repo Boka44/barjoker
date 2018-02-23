@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <h1>Bar Joker</h1>
+    <div class="field1">
+    </div>
+    <% include ../partials/header %>
+
+    <div class="newDare">
+      <form method="POST">
+        <label for="postDare">Add your own: </label><input type="text" name="postDare" class="newDareField" size=50px>
+        <input type="submit" value="Add">
+
+      </form>
+      </br>
+    </div>
+    </br>
+ 
+    <div class="results">
+      <% results.map(function(result) { %>
+            <li id="li-<%= result.dareId %>" >
+              <button onclick="deleteDare(<%= result.dareId %>)">Delete</button> <%= result.dare %>
+            </li>
+      <%}); %>
+    </div>
+    
+    
+    <% include ../partials/footer %>
+  <script type="text/javascript">
+      function deleteDare(id) {
+        $.ajax({
+          url: '/customDares/'+id,
+          type: 'DELETE',
+          success: function(result) {
+            console.log(result)
+              // Do something with the result
+              $('#li-'+id).remove();
+          }
+        });
+      }
+  </script>
+  </body>
+</html>
+
+<!-- <% results.forEach(function(result) { %>
+            <li id="li-<%= result.dareId %>"><button onclick="editTest(<%= result.dareId %>)">Edit</button> <button onclick="deleteDare(<%= result.dareId %>)">Delete</button> <%= result.dare %> <%= result.dareId %></li>
+      <%}); %> -->

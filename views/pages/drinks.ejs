@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <h2>Loop</h2>
+    <ul>
+      <% drinks.forEach(function(drink) { %>
+          <li><%= drink.name %> - <%= drink.drunkness %></li>
+      <% }); %>
+    </ul>
+    <% include ../partials/footer %>
+  </body>
+</html>
