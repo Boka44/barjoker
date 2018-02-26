@@ -169,3 +169,17 @@ li a:hover {
   visibility: hidden;
    z-index: 1;
 }
+
+#togglePun {
+  background-color: lightgrey;
+  width: 150px;
+  display: none;
+}
+
+#togglePun:hover {
+  cursor: pointer;
+}
+
+.punCustom {
+  display: none;
+}

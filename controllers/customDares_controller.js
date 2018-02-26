@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const MySQLPool = require("mysql-pool").MySQLPool;
 const connection = require('../models/database')//.connection;
-const customDares = require('../routes/customDares');
+// const customDares = require('../routes/customDares');
 
 module.exports = {
 	insertIntoDb: function insertIntoDb(newDareInsert, userId) {

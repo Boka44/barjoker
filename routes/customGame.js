@@ -36,9 +36,27 @@ router.get('/dares', isAuthenticated, function(req, res, next) {
 	console.log(sql)
 	connection.query(sql, (err, rows) => {
 		if (err) throw err;
-		let objDare = {};
-		objDare = {results: rows};
+		// let objDare = {};
+		// objDare = {results: rows};
 		console.log(rows);
+		res.send(rows);
+	});
+});
+
+router.get('/punishments', isAuthenticated, function(req, res, next) {
+    // const user = req.user;
+    // console.log(user)
+
+	let sql = "SELECT * FROM ?? WHERE ?? = ?";
+	let inserts = ['punishments', 'userId', user[0].userId];
+
+	sql = mysql.format(sql, inserts);
+	// console.log(sql)
+	connection.query(sql, (err, rows) => {
+		if (err) throw err;
+		// let objDare = {};
+		// objDare = {results: rows};
+		// console.log(rows);
 		res.send(rows);
 	});
 });

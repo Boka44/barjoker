@@ -20,6 +20,7 @@ const account = require('./routes/account');
 const customDares = require('./routes/customDares');
 const customGame = require('./routes/customGame');
 const logout = require('./routes/logout');
+const customPunishments = require('./routes/customPunishments');
 
 const database = require('./models/database');
 
@@ -58,6 +59,7 @@ app.use('/customDares', customDares);
 app.use('/login', login);
 app.use('/customGame', customGame);
 app.use('/logout', logout);
+app.use('/customPunishments', customPunishments);
 
 
 

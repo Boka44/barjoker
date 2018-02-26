@@ -13,8 +13,15 @@ create table Dares (
 	CONSTRAINT FK_UsersDares FOREIGN KEY (userId)REFERENCES Users(userId)
 )
 	
+
+create table Punishments (
+	punId int NOT NULL AUTO_INCREMENT,
+	pun text,
+	userId int,
+	PRIMARY KEY (punId),
+	CONSTRAINT FK_PunishmentsDares FOREIGN KEY (userId)REFERENCES Users(userId)
+)
 	
-	
-	
+		
    
     

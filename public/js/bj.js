@@ -69,29 +69,46 @@ $('document').ready(function(){
   }
 
   let daresArr = [];
+  let punsArr = [];
   
-  $('#getDaresButton').click(() => {
-    const url = '/customGame/dares';
-    let info = {};
-    fetch(url).then((response) => {
-        console.log(response)
-        return response.json() }).then((response) => {
-        info = response;
-        console.log(response)
-        response.map((result) => {
-            daresArr.push(result.dare)
-          })
-        console.log(daresArr)
-        $('.fetchCheck').html("Fetch finished.")
-        })  
-  })
+
+  const urlDare = '/customGame/dares';
+
+  fetch(urlDare).then((response) => {
+    console.log(response)
+    return response.json() }).then((response) => {
+    console.log(response)
+    response.map((result) => {
+        daresArr.push(result.dare)
+      })
+    console.log(daresArr)
+    $('.fetchCheck').html("Fetch finished dares.")
+  })  
+
+  const urlPun = '/customGame/punishments';
+  fetch(urlPun).then((response) => {
+    console.log(response)
+    return response.json() }).then((response) => {
+    console.log(response)
+    response.map((result) => {
+        punsArr.push(result.pun)
+      })
+    console.log(punsArr)
+    $('.fetchCheck2').html("Fetch finished punishments.")
+  })  
+
 
   $('#playCustom').click(function easyF() {
-    var random = Math.floor(Math.random() * daresArr.length);
+    let random = Math.floor(Math.random() * daresArr.length);
     $(".dareCustom").html(daresArr[random]);
+    let randomPuns = Math.floor(Math.random() * punsArr.length);
+    $(".punCustom").html(punsArr[randomPuns]);
+    $("#togglePun").show();
+    $(".punCustom").hide();
   })
 
-  
-  console.log(daresArr)
+  $('#togglePun').click(() => {
+    $('.punCustom').toggle('slow');
+  })
 
 });

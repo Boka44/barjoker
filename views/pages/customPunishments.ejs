@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <h1>Bar Joker</h1>
+    <div class="field1">
+    </div>
+    <% include ../partials/header %>
+    <br>
+    <h2>Punishments</h2>
+    <br>
+    <br>
+    <div class="newDare">
+      <form method="POST">
+        <label for="postPun">Add your own: </label><input type="text" name="postPun" class="newDareField" size=50px>
+        <input type="submit" value="Add">
+
+      </form>
+      </br>
+    </div>
+    </br>
+ 
+    <div class="results">
+      <% results.map(function(result) { %>
+            <li id="li-<%= result.punId %>" >
+              <button onclick="deletePun(<%= result.punId %>)">Delete</button> <%= result.pun %>
+            </li>
+      <%}); %>
+    </div>
+    
+    
+    <% include ../partials/footer %>
+  <script type="text/javascript">
+      function deletePun(id) {
+        $.ajax({
+          url: '/customDares/'+id,
+          type: 'DELETE',
+          success: function(result) {
+            console.log(result)
+              // Do something with the result
+              $('#li-'+id).remove();
+          }
+        });
+      }
+  </script>
+  </body>
+</html>
