@@ -4,7 +4,7 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <h1>Bar Joker</h1>
+    
     <div class="field1">
     </div>
     <% include ../partials/header %>
@@ -35,7 +35,7 @@
   <script type="text/javascript">
       function deletePun(id) {
         $.ajax({
-          url: '/customDares/'+id,
+          url: '/customPunishments/'+id,
           type: 'DELETE',
           success: function(result) {
             console.log(result)

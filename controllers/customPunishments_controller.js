@@ -17,7 +17,7 @@ module.exports = {
 	},
 
 	deletePun: function deletePun(id) {
-		let sql = "DELETE FROM ?? WHERE dareId = ? ";
+		let sql = "DELETE FROM ?? WHERE punId = ? ";
 		let inserts = ['Punishments', id];
 		sql = mysql.format(sql, inserts);
 		connection.query(sql, function(err, results, fields) {

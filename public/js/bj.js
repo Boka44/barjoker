@@ -1,15 +1,14 @@
 
 $('document').ready(function(){
 
-  document.getElementsByTagName("h1")[0].style.fontSize = "80px";
   var easy = [
     "Pick an opponent, first one to wear a stranger's hat wins.",
-    "Squirt ketchup onto someones table, but make it so it seems totally normal and not out of context",
-    "Get a stranger to walk up to another friend and have the use the phrase 'Goose gonna get ya!'",
+    "Squirt ketchup onto someones table, but make it so it seems totally normal and not out of context.",
+    "Get a stranger to walk up to another friend and have them use the phrase 'Goose gonna get ya!'",
     "Tell a stranger that another stranger thinks they are cute."
   ];
   var medium = [
-    "Create a secret handshakewith someone at the bar with 5 different handshakes.",
+    "Create a secret handshake with someone at the bar with 5 different handshakes.",
     "Walk up to someone, create a fake porn star name and in front of their group claim you are their biggest fan.",
     "Have a conversation with someone, where you include the phrase 'Goose gonna get ya!' 10 times without raising suspicion.",
     "Switch two strangers hats."
@@ -71,32 +70,33 @@ $('document').ready(function(){
   let daresArr = [];
   let punsArr = [];
   
+  $('#customGamePage').onload = customGameFetch();
+  function customGameFetch() {
+    const urlDare = '/customGame/dares';
 
-  const urlDare = '/customGame/dares';
+    fetch(urlDare).then((response) => {
+      console.log(response)
+      return response.json() }).then((response) => {
+      console.log(response)
+      response.map((result) => {
+          daresArr.push(result.dare)
+        })
+      console.log(daresArr)
+      $('.fetchCheck').html("Fetch finished dares.")
+    })  
 
-  fetch(urlDare).then((response) => {
-    console.log(response)
-    return response.json() }).then((response) => {
-    console.log(response)
-    response.map((result) => {
-        daresArr.push(result.dare)
-      })
-    console.log(daresArr)
-    $('.fetchCheck').html("Fetch finished dares.")
-  })  
-
-  const urlPun = '/customGame/punishments';
-  fetch(urlPun).then((response) => {
-    console.log(response)
-    return response.json() }).then((response) => {
-    console.log(response)
-    response.map((result) => {
-        punsArr.push(result.pun)
-      })
-    console.log(punsArr)
-    $('.fetchCheck2').html("Fetch finished punishments.")
-  })  
-
+    const urlPun = '/customGame/punishments';
+    fetch(urlPun).then((response) => {
+      console.log(response)
+      return response.json() }).then((response) => {
+      console.log(response)
+      response.map((result) => {
+          punsArr.push(result.pun)
+        })
+      console.log(punsArr)
+      $('.fetchCheck2').html("Fetch finished punishments.")
+    })  
+  }
 
   $('#playCustom').click(function easyF() {
     let random = Math.floor(Math.random() * daresArr.length);

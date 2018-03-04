@@ -4,39 +4,31 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <h1>Bar Joker</h1>
     <% include ../partials/header %>
-
+    <div class="container">
+    
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
-
-    <div class="form">
+     
         <p class="signin">Sign In</p>
-        
-        <form class="signup" action='/signup' method="post">
-            <div>
+        <form action='/signup' method="post">
+           <div class="form-group">
                 <label>Username:</label>
-                <input type="text" name="username" required />
-            </div>
-            <div>
+                <input class="form-control" type="text" name="username" required />        
                 <label>Email:</label>
-                <input type="text" name="email" required/>
-            </div>
-            <div>
+                <input class="form-control" type="text" name="email" required/>   
                 <label>Password:</label>
-                <input type="text" name="password" required/>
-            </div>
-            <div>
-                <input type="submit" value="Submit" required/>
+                <input class="form-control" type="password" name="password" required/>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Submit" required/>
             </div>
         </form>
-    </div>
-
+  
     <p>Already have an account? <a href="/login">Login</a></p>
     <p>Or go <a href="/">home</a>.</p>
     <% include ../partials/footer %>
-
+    </div>
 
   </body>
 </html>
