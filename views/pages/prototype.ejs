@@ -1,30 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>  
     <% include ../partials/head %>
   </head>
-  <body>
-    <% include ../partials/header %>
-   
-    <h1>Bar Joker</h1>
-    <h2>Creating uncomfortable confrontations... for fun!</h2>
-    <p>Welcome to Bar Joker, where we force your friend to:</p>
+    <body id="DefaultGamePage" class="bg whiteText">
+      <% include ../partials/header %>
+      <div class="container-fluid">
+            <div class="row">
+                <div class="col-2" id="gameSide">
+                    <br>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Rules</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content bg">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body" id="rulesBody">
+                            <h3>General</h3>
+                            <ul>
+                                <p>Under no circumstance say that you are playing a game or doing a dare.</p>
+                                <p>Any player named Jacob always loses any argument.</p>
+                                <p>Goose is gonna get ya. Resistance is futile.</p>
+                            </ul>
+                            <h3>Group Vetos</h3>
+                            <ul>
+                                <p>Group can veto any dare, punishment, or success action, but only once per turn.</p>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-8 align-middle text-center">
+                  <h2>Quick Game</h2>
+                  <br>
+                  <button class="btn btn-light" id="playDefault">Dare</button>
+                  <br>
+                  <br>
+                  
+                  <div class="dareDefault">
+                </div>
+                  <br>
+                  
+                  <button class="btn btn-success" id="toggleSuccessDefault">Success</button>
+                  <button class="btn btn-danger" id="togglePunDefault">Failure</button>
+                  <br>
+                <br>
+                <div class="punDefault">
+                  </div>
+                  <div class="successDefault">
+                  </div>
+                </div>
+                <div class="col-2" id="gameSide">
+                </div>
+            </div>
+        </div>
 
-    <div class="dare"> 
-    </div>
-    <button class="myButton" id="easy">Easy</button>
-    <button class="myButton" id="medium">Medium</button>
-    <button class="myButton" id="hard">Hard</button>
-    <p>or else..</p>
-    <button class="myButton" id="punish">Punishment</button>
-    <form>
-      Add your own: <input type="text" class="newDareProto" size=50px>
-      <input type="button" value="Submit Easy" class="myButton" id="addE">
-      <input type="button" value="Submit Medium" class="myButton" id="addM">
-      <input type="button" value="Submit Hard" class="myButton" id="addH">
-    </form>
-    <% include ../partials/footer %>
-
-
+      <% include ../partials/footer %>
   </body>
 </html>

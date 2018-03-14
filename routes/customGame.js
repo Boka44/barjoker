@@ -61,4 +61,24 @@ router.get('/punishments', isAuthenticated, function(req, res, next) {
 	});
 });
 
+router.get('/successes', isAuthenticated, (req, res, next) => {
+	let successes = [
+	"Choose the who plays next.", 
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Tallest person plays next.",
+	"Smallest person plays next.",
+	"Whoever dared you plays again.",
+	"Person to your right plays next.",
+	"Person to your left plays next.",
+	"Last person to touch the bathroom door plays next.",
+	"Last person to go outside of the bar plays next.",
+	"First person to sip their drink plays next.",
+	"Group chooses who plays next"
+	]
+	res.send(successes)
+});
+
 module.exports = router;

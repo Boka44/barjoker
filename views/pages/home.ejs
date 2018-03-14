@@ -3,18 +3,35 @@
   <head>
     <% include ../partials/head %>
   </head>
-  <body>
+  <body class="bg">
     <% include ../partials/header %>
-    <div>
-      <p>Welcome to Bar Joker! Here, you can put your friends in uncomfortable situations, for fun!</p>
-      <p>To play a quick game with the standard dares, click Quick Play.</p>
+    <div class="container">
+      <div class="text-center whiteText">
+        <br>
+        <h1 class="dispaly-2 text-center">Barjoker</h1>
+        <br>
+        <p>Welcome to Bar Joker! Here, you can put your friends in uncomfortable situations, for fun!</p>
+        <p>Create an account or login to customize your game and have access to new features.</p>
+        <br>
+        <input type="button" class="btn btn-primary" onclick="location.href='/login'" value="Login" />
+        <br>
+        <br>
+        <p>To play a quick game with the standard dares, click Quick Game.</p>
+        <br>
+        <input type="button" class="btn btn-primary" onclick="location.href='/prototype'" value="Quick Game" />
+      </div>
+      <!-- <div class="row text-center">
+        <div class="col-md-12 col-sm-12">
+          <br>
+          <input type="button" class="btn btn-dark" onclick="location.href='/login'" value="Login" />
+          <br>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <br>
+          <input type="button" class="btn btn-dark" onclick="location.href='/prototype'" value="Quick Play" />
+          <br>
+      </div> -->
     </div>
-    <input type="button" class="btn btn-dark" onclick="location.href='/prototype'" value="Quick Play" />
-    
-  
-
     <% include ../partials/footer %>
-
-    
   </body>
 </html>

@@ -3,19 +3,34 @@
   <head>
     <% include ../partials/head %>
   </head>
-  <body>
+  <body class="bg">
     <% include ../partials/header %>
-    <div>
-      <p>Hello, <%= user[0].userName %>!</p>
-      <p>Customize your dares here:</p>
-        <input type="button" onclick="location.href='/customDares'" value="Custom Dares" class="myButton" id= />
-      <p>Don't forget to customize your punishments too:</p>
-      <input type="button" onclick="location.href='/customPunishments'" value="Custom Punishments" class="myButton" id= />
-      <p>
-        <strong>id</strong>: <%= user[0].userId %><br>
-      </p>
-      <input type="button" id="customGameButton" onclick="location.href='/customGame'" value="Custom Game" class="myButton">
-
+    <div class="container-fluid">
+      <div class="row text-center whiteText">
+        <div class="col-md-6 col-sm-12" id="accountPanel">
+          <br>
+          <h2>Hello, <%= user[0].userName %>!</h2>
+          <br>
+          <p>Customize your dares here:</p>
+          <br>
+          <input type="button" onclick="location.href='/customDares'" value="Custom Dares" class="btn btn-success" />
+          <br>
+          <br>
+          <p>Don't forget to customize your punishments too:</p>
+          <br>
+          <input type="button" onclick="location.href='/customPunishments'" value="Custom Punishments" class="btn btn-danger" />
+          <br>
+          <!-- <p>
+            <strong>id</strong>: <%= user[0].userId %><br>
+          </p> -->
+        </div>
+        <div class="col-md-6 col-sm-12" id="playGame" onclick="location.href='/customGame'">
+          <br>
+          <br>
+          <h2>Play Custom Game</h2>
+          <br>
+        </div>
+      </div>
     </div>
     <div>
       

@@ -3,32 +3,28 @@
   <head>
     <% include ../partials/head %>
   </head>
-  <body>
-    
-    <div class="field1">
-    </div>
+  <body class="bg">
     <% include ../partials/header %>
-    <br>
-    <h2>Punishments</h2>
-    <br>
-    <br>
+    
+    <div class="container">
     <div class="newDare">
       <form method="POST">
-        <label for="postPun">Add your own: </label><input type="text" name="postPun" class="newDareField" size=50px>
-        <input type="submit" value="Add">
+        <label class="whiteText" for="postPun">Add your own: </label><input type="text" name="postPun" class="newDareField form-text" size=50px>
+        <input class="btn btn-primary" type="submit" value="Add">
 
       </form>
       </br>
     </div>
     </br>
  
-    <div class="results">
+    <div class="results whiteText">
       <% results.map(function(result) { %>
-            <li id="li-<%= result.punId %>" >
-              <button onclick="deletePun(<%= result.punId %>)">Delete</button> <%= result.pun %>
-            </li>
+            <ul style="padding-left: 0px" id="li-<%= result.punId %>" >
+              <button class="btn btn-danger" onclick="deletePun(<%= result.punId %>)">Delete</button> <%= result.pun %>
+            </ul>
       <%}); %>
     </div>
+  </div>
     
     
     <% include ../partials/footer %>

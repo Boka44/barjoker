@@ -3,30 +3,29 @@
   <head>
     <% include ../partials/head %>
   </head>
-  <body>
+  <body class="bg">
     <% include ../partials/header %>
-    <div class="field1">
-    </div>
-    
+    <div class="container">
 
     <div class="newDare">
       <form method="POST">
-        <label for="postDare">Add your own: </label><input type="text" name="postDare" class="newDareField" size=50px>
-        <input type="submit" value="Add">
+        <label class="whiteText" for="postDare">Add your own: </label><input type="text" name="postDare" class="newDareField form-text" size=50px style="margin-right: 15px"> 
+
+        <input type="submit" class="btn btn-primary" value="Add">
 
       </form>
       </br>
     </div>
     </br>
  
-    <div class="results">
+    <div class="results whiteText">
       <% results.map(function(result) { %>
-            <li id="li-<%= result.dareId %>" >
-              <button onclick="deleteDare(<%= result.dareId %>)">Delete</button> <%= result.dare %>
-            </li>
+            <ul style="padding-left: 0px" id="li-<%= result.dareId %>" >
+              <button class="btn btn-danger" onclick="deleteDare(<%= result.dareId %>)">Delete</button> <%= result.dare %>
+            </ul>
       <%}); %>
     </div>
-    
+  </div>
     
     <% include ../partials/footer %>
   <script type="text/javascript">
@@ -36,7 +35,7 @@
           type: 'DELETE',
           success: function(result) {
             console.log(result)
-              // Do something with the result
+              //
               $('#li-'+id).remove();
           }
         });

@@ -1,11 +1,10 @@
-/*body {
-  background-image: url("https://images5.alphacoders.com/462/thumb-350-462280.jpg");
-  background-size:cover
-}*/
+.whiteText {
+  color: white;
+  text-shadow: rgba(0,0,0,.3) 0px 2px 4px;
+}
 
-p {
-  font-size: 20px;
-  color: black;
+.bg {
+  background-color: #384042 !important;
 }
 
 .footer {
@@ -85,13 +84,22 @@ li a {
     font-size: 20px;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
 }
 
+#accountPanel {
+  background-color: grey;
+  height: 100vh;
+}
+
+#playGame:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
 .results {
-  color: blue;
+  color: white;
   font-size: 20px;
   float: left;
   display: inline;
@@ -99,7 +107,6 @@ li a:hover {
   height: 100%;
   width: 100%;
   margin-bottom: 50px;
-
 }
 
 .newDare {
@@ -118,16 +125,47 @@ li a:hover {
    z-index: 1;
 }
 
-#togglePun {
+/*#gameSide {
   background-color: lightgrey;
-  width: 150px;
+  height: 100vw;
+}*/
+
+#toggleSuccess {
   display: none;
 }
 
-#togglePun:hover {
-  cursor: pointer;
+#togglePun {
+  display: none;
+}
+
+.successCustom {
+  display: none;
 }
 
 .punCustom {
   display: none;
+}
+
+.dareCustom {
+  min-height: 150px;
+}
+
+#toggleSuccessDefault {
+  display: none;
+}
+
+#togglePunDefault {
+  display: none;
+}
+
+.successDefault {
+  display: none;
+}
+
+.punDefault {
+  display: none;
+}
+
+.dareDefault {
+  min-height: 150px;
 }

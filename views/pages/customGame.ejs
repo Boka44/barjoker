@@ -3,24 +3,64 @@
   <head>	
     <% include ../partials/head %>
   </head>
-    <body id="customGamePage">
-    	
-     	<% include ../partials/header %>
-     	<div class="fetchCheck"> 
-     	</div>
-        <div class="fetchCheck2"> 
-        </div>
-        <button class="myButton" id="playCustom">Play</button>
-     	<br>
-     	<br>
-     	<div class="dareCustom">
-		</div>
-        <p>Add success and failure buttons</p>
-		<br>
-        <div id="togglePun"> 
-             Click to show punishment.               
-        </div>
-		<div class="punCustom">
+    <body id="customGamePage" class="bg whiteText">
+    	<% include ../partials/header %>
+     	<div class="container-fluid">
+            <div class="row">
+                <div class="col-2" id="gameSide">
+                    <br>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Rules</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content bg">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body" id="rulesBody">
+                            <h3>General</h3>
+                            <ul>
+                                <p>Under no circumstance say that you are playing a game or doing a dare.</p>
+                                <p>Any player named Jacob always loses any argument.</p>
+                                <p>Goose is gonna get ya. Resistance is futile.</p>
+                            </ul>
+                            <h3>Group Vetos</h3>
+                            <ul>
+                                <p>Group can veto any dare, punishment, or success action, but only once per turn.</p>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-8 align-middle text-center">
+                    <h2>Custom Game</h2>
+                    <br>
+                    <button class="btn btn-light" id="playCustom">Dare</button>
+                 	<br>
+                    <br>
+                 	
+                 	<div class="dareCustom">
+            		</div>
+                    <br>
+                    
+                    <button class="btn btn-success" id="toggleSuccess">Success</button>
+                    <button class="btn btn-danger" id="togglePun">Failure</button>
+                    <br>
+            		<br>
+            		<div class="punCustom">
+                    </div>
+                    <div class="successCustom">
+                    </div>
+                </div>
+                <div class="col-2" id="gameSide">
+                </div>
+            </div>
         </div>
 
      	<% include ../partials/footer %>

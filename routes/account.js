@@ -2,16 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 function isAuthenticated(req, res, next) {
-
   if (req.isAuthenticated()) {
-
   	console.log('isAuthenticated')
-
     return next();
   };
-
-  res.redirect('/signup');
-
+  res.redirect('/login');
 }
 
 router.get('/', isAuthenticated, function(req, res, next) {
