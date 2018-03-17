@@ -25,7 +25,7 @@ router.get('/', isAuthenticated, function(req, res, next) {
 	// console.log("userid: " + user[0].userId)
 
 	let sql = "SELECT * FROM ?? WHERE ?? = ?";
-	let inserts = ['punishments', 'userId', user[0].userId];
+	let inserts = ['Punishments', 'userId', user[0].userId];
 	sql = mysql.format(sql, inserts);
 	// console.log(sql)
 	connection.query(sql, (err, rows) => {

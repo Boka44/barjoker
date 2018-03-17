@@ -8,29 +8,32 @@
     <div class="container">
       <div class="text-center whiteText">
         <br>
-        <h1 class="dispaly-2 text-center">Barjoker</h1>
+        <h1 class="dispaly-2 text-center">Barjoker <%= loggedIn %></h1>
         <br>
         <p>Welcome to Bar Joker! Here, you can put your friends in uncomfortable situations, for fun!</p>
+        <p>This is the protoype, so ignore design. Also, expect new features as we go along.</p>
+        <div class="alert alert-success">
+          <h3 class="alert-heading">Newest update:</h3>
+          <ul>
+            <p>Added custom successes page and added the defaults to new accounts.</p>
+            <p>Fixed bug that showed logout button regardless of user logged in or not.</p>
+            <p>Added a mailer for new accounts. After signing up, check your inboxes and clarify it works.</p>
+          </ul>
+        </div>
+        <%if(loggedIn) {%>
+        <input type="button" class="btn btn-primary" onclick="location.href='/logout'" value="Logout" />
+        <%} else {%>
         <p>Create an account or login to customize your game and have access to new features.</p>
         <br>
         <input type="button" class="btn btn-primary" onclick="location.href='/login'" value="Login" />
+        <input type="button" class="btn btn-primary" onclick="location.href='/signup'" value="Sign Up" />
+        <%};%>
         <br>
         <br>
         <p>To play a quick game with the standard dares, click Quick Game.</p>
         <br>
         <input type="button" class="btn btn-primary" onclick="location.href='/prototype'" value="Quick Game" />
       </div>
-      <!-- <div class="row text-center">
-        <div class="col-md-12 col-sm-12">
-          <br>
-          <input type="button" class="btn btn-dark" onclick="location.href='/login'" value="Login" />
-          <br>
-        </div>
-        <div class="col-md-12 col-sm-12">
-          <br>
-          <input type="button" class="btn btn-dark" onclick="location.href='/prototype'" value="Quick Play" />
-          <br>
-      </div> -->
     </div>
     <% include ../partials/footer %>
   </body>

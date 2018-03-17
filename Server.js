@@ -21,6 +21,7 @@ const customDares = require('./routes/customDares');
 const customGame = require('./routes/customGame');
 const logout = require('./routes/logout');
 const customPunishments = require('./routes/customPunishments');
+const customSuccesses = require('./routes/customSuccesses');
 
 const database = require('./models/database');
 
@@ -39,7 +40,6 @@ app.set('view engine', 'ejs');
 
 // set up passport local and and express-session
 
-
 app.use(session({ 
 	secret: "itsASecretToEveryone",
 	resave: false,
@@ -48,6 +48,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+app.use((req, res, next) => {
+	res.locals.loggedIn = req.isAuthenticated();
+	next();
+})
 
 app.get('/', home);
 
@@ -60,8 +65,55 @@ app.use('/login', login);
 app.use('/customGame', customGame);
 app.use('/logout', logout);
 app.use('/customPunishments', customPunishments);
+app.use('/customSuccesses', customSuccesses);
+
+let check = true;
+
+ function updateDB() {
+
+ 	if(check) {
+
+ 	 function insertSuccess(success, userId) {
+		let sql = "INSERT INTO ?? (??, ??) VALUES (?, ?)";
+		let inserts = ["Successes", "success", "userId", success, userId];
+		sql = mysql.format(sql, inserts);
+		connection.query(sql, function(err, results, fields) {
+			if(err) 
+				throw err;
+			console.log("New success inserted.");
+			
+		});
+	},
 
 
+ 	let successesDefault = [
+	"Choose the who plays next.", 
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Tallest person plays next.",
+	"Smallest person plays next.",
+	"Whoever dared you plays again.",
+	"Person to your right plays next.",
+	"Person to your left plays next.",
+	"Last person to touch the bathroom door plays next.",
+	"Last person to go outside of the bar plays next.",
+	"First person to sip their drink plays next.",
+	"Group chooses who plays next"
+	];
+  for (var i = 1; i < 8; i++) {
+  		for (let h = 0; h < successesDefault.length; i++){
+  			insertSuccess(successesDefault(h),i)
+  		}
+  		
+  	}	
+
+  	check = false;
+  } 
+
+
+}
 
 app.listen(PORT, function(){
   console.log("Live at Port " + PORT);

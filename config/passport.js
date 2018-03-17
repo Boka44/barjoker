@@ -5,6 +5,8 @@ const login_controller = require('../controllers/login_controller');
 const bcrypt = require('bcrypt-nodejs');
 const customDares_controller = require('../controllers/customDares_controller'); 
 const customPunishments_controller = require('../controllers/customPunishments_controller');
+const customSuccesses_controller = require('../controllers/customSuccesses_controller');
+const fetch = require('node-fetch');
 
 
 // expose this function to our app using module.exports
@@ -65,10 +67,39 @@ module.exports = function(passport) {
 							throw err;
 						console.log("User added!")
 
+						// Send welcome email
+
+						let data = {
+								name: username,
+								email: email
+							};
+						let formBody = []
+						for (var property in data) {
+							  var encodedKey = encodeURIComponent(property);
+							  var encodedValue = encodeURIComponent(data[property]);
+							  formBody.push(encodedKey + "=" + encodedValue);
+							}
+							formBody = formBody.join("&");
+
+						const url = 'https://peaceful-reaches-32891.herokuapp.com/barjoker'
+						fetch(url, {
+							method: 'POST',
+							headers: {
+						    	'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+						    },
+						    mode: 'cors',
+							body: formBody
+						}).then(res => res.json())
+						.then(function (data) {
+							console.log('Request success: ' + data);
+						}).catch(function (error) {
+							console.log('Request failure: ' + error);
+						})
+
 						let daresDefault = [
     "Pick an opponent, first one to wear a stranger's hat wins.",
     "Bum a cigarrete and light it backwards.",
-    "Group writes a note to give to the person of their choosing. Without peaking, give it to them and roll with whatever happens.",
+    "Group writes a note to give to the person of their choosing. Without peeking, give it to them and roll with whatever happens.",
     "Introduce yourself as a rapper, and offer to incorporate three words into a short freestyle rap for them.",
     "Get a kiss on the cheek from a stranger.",
     "Give someone a lapdance.",
@@ -118,6 +149,23 @@ module.exports = function(passport) {
 	"Create a punishment."
 	];
 
+						let successesDefault = [
+	"Choose the who plays next.", 
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Choose the who plays next.",
+	"Tallest person plays next.",
+	"Smallest person plays next.",
+	"Whoever dared you plays again.",
+	"Person to your right plays next.",
+	"Person to your left plays next.",
+	"Last person to touch the bathroom door plays next.",
+	"Last person to go outside of the bar plays next.",
+	"First person to sip their drink plays next.",
+	"Group chooses who plays next"
+	];
+
   						
 
   						let sqlIdGet = "SELECT * FROM  ?? WHERE ?? = ?";
@@ -136,6 +184,10 @@ module.exports = function(passport) {
 							for(let i = 0; i < punsDefault.length; i++) {
 								customPunishments_controller.insertPun(punsDefault[i],user)
 							}
+							for(let i = 0; i < successesDefault.length; i++) {
+								customSuccesses_controller.insertSuccess(successesDefault[i],user)
+							}
+
 							
 						})
 						let sql = "SELECT * FROM  ?? WHERE ?? = ?";

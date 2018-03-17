@@ -11,9 +11,15 @@
           <br>
           <h2>Hello, <%= user[0].userName %>!</h2>
           <br>
-          <p>Customize your dares here:</p>
+          <p>Customize your dares here: <%= loggedIn %></p>
           <br>
-          <input type="button" onclick="location.href='/customDares'" value="Custom Dares" class="btn btn-success" />
+          <input type="button" onclick="location.href='/customDares'" value="Custom Dares" class="btn btn-primary" />
+          <br>
+          <br>
+          <p>Customize your successes here:</p>
+          <br>
+
+          <input type="button" onclick="location.href='/customSuccesses'" value="Custom Successes" class="btn btn-success" />
           <br>
           <br>
           <p>Don't forget to customize your punishments too:</p>

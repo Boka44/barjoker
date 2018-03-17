@@ -5,13 +5,17 @@ create table Users (
 	email varchar(255)
 )
 
+create table Users (userId int NOT NULL PRIMARY KEY AUTO_INCREMENT,userName varchar(255),password varchar(255),email varchar(255));
+
 create table Dares (
 	dareId int NOT NULL AUTO_INCREMENT,
 	dare text,
 	userId int,
 	PRIMARY KEY (dareId), 
-	CONSTRAINT FK_UsersDares FOREIGN KEY (userId)REFERENCES Users(userId)
+	FOREIGN KEY (userId) REFERENCES Users(userId)
 )
+
+create table Dares (dareId int NOT NULL AUTO_INCREMENT,dare text,userId int,PRIMARY KEY (dareId), FOREIGN KEY (userId) REFERENCES Users(userId));
 	
 
 create table Punishments (
@@ -19,8 +23,20 @@ create table Punishments (
 	pun text,
 	userId int,
 	PRIMARY KEY (punId),
-	CONSTRAINT FK_PunishmentsDares FOREIGN KEY (userId)REFERENCES Users(userId)
+	FOREIGN KEY (userId) REFERENCES Users(userId)
 )
+
+create table Punishments (punId int NOT NULL AUTO_INCREMENT,pun text,userId int,PRIMARY KEY (punId),FOREIGN KEY (userId) REFERENCES Users(userId));
+
+create table Successes (
+	successId int NOT NULL AUTO_INCREMENT,
+	success text,
+	userId int,
+	PRIMARY KEY (successId),
+	FOREIGN KEY (userId) REFERENCES Users(userId)
+)
+
+create table Successes (successId int NOT NULL AUTO_INCREMENT,success text,userId int,PRIMARY KEY (successId),FOREIGN KEY (userId) REFERENCES Users(userId));
 	
 		
    

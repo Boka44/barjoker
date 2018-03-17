@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body class="bg">
+    <% include ../partials/header %>
+    
+    <div class="container">
+    <div class="newDare">
+      <form method="POST">
+        <label class="whiteText" for="postSuccess">Add your own: </label><input type="text" name="postSuccess" class="newDareField form-text" size=50px>
+        <input class="btn btn-primary" type="submit" value="Add">
+
+      </form>
+      </br>
+    </div>
+    </br>
+ 
+    <div class="results whiteText">
+      <% results.map(function(result) { %>
+            <ul style="padding-left: 0px" id="li-<%= result.successId %>" >
+              <button class="btn btn-danger" onclick="deleteSuccess(<%= result.successId %>)">Delete</button> <%= result.success %>
+            </ul>
+      <%}); %>
+    </div>
+  </div>
+    
+    
+    <% include ../partials/footer %>
+  <script type="text/javascript">
+      function deleteSuccess(id) {
+        $.ajax({
+          url: '/customSuccesses/'+id,
+          type: 'DELETE',
+          success: function(result) {
+            console.log(result)
+              // Do something with the result
+              $('#li-'+id).remove();
+          }
+        });
+      }
+  </script>
+  </body>
+</html>

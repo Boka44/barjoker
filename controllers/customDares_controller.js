@@ -20,7 +20,7 @@ module.exports = {
 	deleteDare: function deleteDare(id) {
 		let sql = "DELETE FROM ?? WHERE dareId = ? ";
 		let inserts = ['Dares', id];
-		sql = mysql.format(sql, inserts);
+		sql = mysql.format(sql, inserts);		
 		connection.query(sql, function(err, results, fields) {
 			if(err) 
 				throw err;			

@@ -33,7 +33,7 @@ router.get('/', isAuthenticated, function(req, res, next) {
 	console.log("userid: " + user[0].userId)
 
 	let sql = "SELECT * FROM ?? WHERE ?? = ?";
-	let inserts = ['dares', 'userId', user[0].userId];
+	let inserts = ['Dares', 'userId', user[0].userId];
 
 	sql = mysql.format(sql, inserts);
 	console.log(sql)
@@ -44,8 +44,7 @@ router.get('/', isAuthenticated, function(req, res, next) {
 		objDare = {results: rows};
 		console.log(objDare);
 		res.render('./pages/customDares', objDare);
-	});
-  
+	}); 
 });
 
 router.post('/', function(req, res) {
